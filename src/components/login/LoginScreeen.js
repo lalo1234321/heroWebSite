@@ -11,6 +11,9 @@ export const LoginScreeen = ({history}) => {
                 name : 'Lalo' 
             }
         });
+
+        // el orden en el que se pongan las instrucciones no importa, debido a que react le dará prioridad 
+        //  a las operaciones sincronas, y después las asincronas
         history.replace('/');
         // console.log('alg0   ',user);
         // history.push('/');

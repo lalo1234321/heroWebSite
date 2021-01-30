@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../auth/AuthContext'
 import { types } from '../../types/types';
 
@@ -9,9 +9,10 @@ import { types } from '../../types/types';
 // también es necesario jugar con el envió de valores por las props y así utilizarlos en diferentes componentes
 // sin embargo el uso de las properties entre componenetes es una mala prática,
 // es por eso que utlizaremos el context para acceder a alguna propiedad del arbol de componenetes
-export const Navbar = ({history}) => {
+// como el navbar está dentro de un context provider, este puede acceder a las demás props
+export const Navbar = () => {
     const {user, dispatch} = useContext(AuthContext);
-    
+    const history = useHistory();
     const handleLogOut = () => {
         history.replace('/login');
         dispatch({
